@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+		<style>
+		body {max-width="800px"; min-width="400px"}
+		.container{width: 100%; margin-top: 50px}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header" align="center">
+				<h1 data-bind="click: $root.goHome">Movie It<small> search</small></h1>
+			</div>
+			
+			<div class="row">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search for movies" data-bind="value: SearchText, event: {keyup: SearchWithEnter}"></input>
+					<span class="input-group-btn"><button class="btn btn-default" type="button" data-bind="click: searchResults">Search</button></span>
+				</div>
+			</div>
+
+			<div data-bind="with: ResultObject">
+											
+				<table  class="table" data-bind="visible: Response">
+					<tbody data-bind="foreach: Search">
+						<tr data-bind="click: $root.goToMovie, visible: $index() < 3">
+							<td> <h2 data-bind="text: Title"></h2></td>
+							<td><img data-bind="attr:{src: Poster}, visible: (Poster != 'N/A')" style="max-height:150px; max-width:100px"></img></td>
+							</td>
+						</tr>     
+					</tbody>
+				</table>
+				
+				<div data-bind="visible: !Response"  style="margin:50px" class="alert alert-danger" role="alert">Nothing found!</div>
+			</div>
+						
+			<div data-bind="with: SelectedMovie" style="margin-top:50px">
+				<div class="page-header" align="center">
+					<h1><span data-bind="text: Title"></span> <small data-bind="text: Year"></small> <span> <img data-bind="attr:{src: Poster}, visible: (Poster != 'N/A')" height="150" width="100"></img> </span></h1>
+				</div>
+		
+				<p align="justify" data-bind="text: Plot"</p>
+				
+				<ul class="list-group">
+					<li class="list-group-item"><label>Rated: </label><span data-bind="text: Rated"></span></li>
+					<li class="list-group-item"><label>Released: </label><span data-bind="text: Released"></span></li>
+					<li class="list-group-item"><label>Runtime: </label><span data-bind="text: Runtime"></li>
+					<li class="list-group-item"><label>Genre: </label><span data-bind="text: Genre"></li>
+					<li class="list-group-item"><label>Director: </label><span data-bind="text: Director"></li>
+					<li class="list-group-item"><label>Writer: </label><span data-bind="text: Writer"></span></li>
+					<li class="list-group-item"><label>Actors: </label><span data-bind="text: Actors"></span></li>
+					<li class="list-group-item"><label>Language: </label><span data-bind="text: Language"></span></li>
+					<li class="list-group-item"><label>Awards: </label><span data-bind="text: Awards"></span></li>
+					<li class="list-group-item"><label>imdbRating: </label><span data-bind="text: imdbRating"></li>
+				</ul>
+			</div>
+		
+			<script type="text/javascript" >
+				
+			function MovieItViewModel() 
+			{
+				var self = this;
+				self.SearchText = ko.observable();
+				self.ResultObject = ko.observable();
+				self.SelectedMovie = ko.observable();
+				
+				self.SearchWithEnter = function(data , event)
+				{
+					if (event.which == 13) 
+					{
+						self.searchResults();
+					}
+				};
+				
+				self.goHome = function()
+				{
+					self.SearchText(null);
+					self.ResultObject(null);
+					self.SelectedMovie(null);
+				};
+				
+				self.goToMovie = function(Movie)
+				{
+					self.ResultObject(null);
+					$.get("http://www.omdbapi.com/", { t: Movie.Title, plot: "full", r: "json" }, self.SelectedMovie);
+				};
+				
+				self.searchResults = function()
+				{
+					self.ResultObject(null);
+					self.SelectedMovie(null);
+					if(self.SearchText != null)
+						$.get("http://www.omdbapi.com/", { s: self.SearchText, r: "json", type: "movie" }, self.ResultObject);
+				};
+			};
+			ko.applyBindings(new MovieItViewModel());
+			</script>
+		</div>
+	</body>
+</html>
