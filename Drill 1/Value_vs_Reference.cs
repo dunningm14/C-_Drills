@@ -1,4 +1,12 @@
-﻿using System;
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/28/16
+OS: Windows 10
+Purpose: To demonstrate the difference between value types and reference types
+         
+**************************************************************************************************************************/﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
