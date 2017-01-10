@@ -1,1 +1,1 @@
-# C# Drills for the Tech Academy
+These were the drills I completed while learning C# through the Tech Academy. It was during the course where I learned the fundamentals of the .NET Framework and the C# programming language and gained the fundamental skills in writing applications using C#.
