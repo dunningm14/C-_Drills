@@ -1,3 +1,13 @@
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/26/16
+OS: Windows 10
+Purpose: Demonstrate the serialization of an object - in this case, a BLOB (Binary Large Object’). The object should be
+         streamed to a text file. Show also the retrieval of the object from that file and conversion back to its
+         original form.  
+         
+**************************************************************************************************************************/
+
 using System;
 using System.Collections.Generic;
 using System.IO;
