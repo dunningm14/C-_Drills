@@ -1,3 +1,11 @@
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/26/16
+OS: Windows 10
+Purpose: Demonstrate the differences between an abstract class and an interface, in terms of creation and use of each. 
+
+**************************************************************************************************************************/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +25,11 @@ namespace AbstractClass
             abstract public void Run();
             abstract public void Eat();
         }
-        // A class can inherit a method from an interface
-        // or methods and properties from an abstract class
+/*************************************************************************************************************************
+                                    A class can inherit a method from an interface
+                                    or methods and properties from an abstract class
+**************************************************************************************************************************/        
+
         class Bear : Animal, ISleep
         {
             public override void Eat()
