@@ -1,4 +1,12 @@
-﻿using System;
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/30/16
+OS: Windows 10
+Purpose: To demonstrate the creation of a sealed class   
+         
+**************************************************************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
