@@ -1,4 +1,12 @@
-﻿using System;
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/26/16
+OS: Windows 10
+Purpose: Create and use a delegate  
+         
+**************************************************************************************************************************/﻿
+
+using System;
 
 delegate int NumberChanger(int n);
 namespace DelegateAppl
