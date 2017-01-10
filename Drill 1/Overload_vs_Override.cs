@@ -1,4 +1,13 @@
-﻿using System;
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/26/16
+OS: Windows 10
+Purpose: This was an exercise I did to explore the difference between overloading methods and overriding methods, showing 
+         each in operation
+
+**************************************************************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +15,11 @@ using System.Threading.Tasks;
 
 namespace Overload_vs_Override
     
-//Overloading
+/*************************************************************************************************************************
+
+                                                         OVERLOADING
+
+**************************************************************************************************************************/
     public class test
     {
         public void getStuff(int id)
@@ -15,7 +28,11 @@ namespace Overload_vs_Override
         { }
     }
 
-//Overriding
+/*************************************************************************************************************************
+
+                                                         OVERRIDING
+
+**************************************************************************************************************************/
     public class test
     {
         public virtual void getStuff(int id)
