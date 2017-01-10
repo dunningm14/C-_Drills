@@ -1,4 +1,12 @@
-﻿using System.Collections.Generic;
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/29/16
+OS: Windows 10
+Purpose: Demonstrate the use of an interface   
+         
+**************************************************************************************************************************/﻿
+
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System;
