@@ -1,4 +1,12 @@
-﻿using System;
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/28/16
+OS: Windows 10
+Purpose: To demonstrate the creation and use of a try, catch, finally block  
+         
+**************************************************************************************************************************/﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
