@@ -1,3 +1,11 @@
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/26/16
+OS: Windows 10
+Purpose: Demonstrate the use of the access modifiers: public, protected, internal, private, protected internal. 
+
+**************************************************************************************************************************/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
