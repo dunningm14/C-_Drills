@@ -1,4 +1,13 @@
-﻿using System;
+/*************************************************************************************************************************
+Author: Madison Dunning
+Date: 11/28/16
+OS: Windows 10
+Purpose: Handling an exception by writing the important data from the exception to a log file on the local
+         machine   
+         
+**************************************************************************************************************************/﻿﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
